@@ -1,6 +1,7 @@
 from django.shortcuts import render, HttpResponse, redirect
 from django.contrib.auth.decorators import login_required
-
+from .models import Record
+from .forms import RecordForm, UserForm
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
 
@@ -9,7 +10,23 @@ from django.contrib.auth.forms import UserCreationForm
 
 @login_required
 def index(request):
+    user = request.user
+    record_form = RecordForm(user=user)
+    user_form = UserForm()
+    records = Record.objects.filter(user=user, event_type='active')
     return render(request, 'app/index.html', locals())
+
+@login_required
+def addEvent(request):
+    if request.method == 'POST':
+        user = request.user
+        form = RecordForm(user,request.POST)
+        if form.is_valid():
+            record = form.save(commit=False)
+            record.user = user
+            record.event_type = 'active'
+            record.save()
+    return redirect('/')
 
 
 def signup(request):
