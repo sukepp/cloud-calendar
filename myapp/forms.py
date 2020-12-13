@@ -1,5 +1,5 @@
 from django.forms import ModelForm, TextInput
-from datetime import date
+from datetime import date, time, datetime
 from .models import Record
 
 

@@ -1,5 +1,6 @@
+import django.utils.timezone as timezone
 from django.db import models
-from django.db.models import CharField, DateField, ForeignKey, IntegerField
+from django.db.models import CharField, DateField, ForeignKey, IntegerField, TimeField
 from django.contrib.auth.models import User
 
 # Create your models here.
