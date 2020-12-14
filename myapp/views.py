@@ -13,7 +13,7 @@ def index(request):
     user = request.user
     record_form = RecordForm(user=user)
     user_form = UserForm()
-    records = Record.objects.filter(user=user, event_type='active')
+    records = Record.objects.filter(user=user)
     return render(request, 'app/index.html', locals())
 
 
@@ -25,7 +25,6 @@ def addEvent(request):
         if form.is_valid():
             record = form.save(commit=False)
             record.user = user
-            record.event_type = 'active'
             record.save()
     return redirect('/')
 
@@ -83,7 +82,7 @@ def shareEvent(request):
             user = form.cleaned_data.get('user')
             record = Record.objects.get(id=event_id)
             Record.objects.create(date=record.date, time_start=record.time_start, time_end=record.time_end, title=record.title,
-                                  description=record.description, event_type=record.event_type, user=user)
+                                  description=record.description, user=user)
     return redirect('/')
 
 
