@@ -12,7 +12,7 @@ class RecordForm(ModelForm):
 
     class Meta:
         model = Record
-        fields = ['date', 'title', 'description']
+        fields = ['date', 'time_start', 'time_end', 'title', 'description']
         widgets = {
             'date': TextInput(attrs={
                 'id': 'datepicker1',

@@ -55,9 +55,12 @@ def updateEvent(request):
         posted_data = request.POST
         event_id = posted_data['id_value']
         date = posted_data['date']
+        time_start = posted_data['time_start']
+        time_end = posted_data['time_end']
         title = posted_data['title']
         description = posted_data['description']
-        Record.objects.filter(id=event_id).update(date=date, title=title, description=description)
+        Record.objects.filter(id=event_id).update(date=date, time_start=time_start, time_end=time_end, title=title,
+                                                  description=description)
     return redirect('/')
 
 
@@ -79,7 +82,7 @@ def shareEvent(request):
         if form.is_valid():
             user = form.cleaned_data.get('user')
             record = Record.objects.get(id=event_id)
-            Record.objects.create(date=record.date, title=record.title,
+            Record.objects.create(date=record.date, time_start=record.time_start, time_end=record.time_end, title=record.title,
                                   description=record.description, event_type=record.event_type, user=user)
     return redirect('/')
 

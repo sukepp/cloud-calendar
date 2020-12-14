@@ -30,11 +30,19 @@
   <form method="post" action="/update_event">
   {% csrf_token %}
    <tr>
-    <th>Event date</th>
+    <th>Event Date</th>
     <td><input type="text" name="date" value={{record.date| date:"Y-m-d" }}></td>
   </tr>
-   <tr>
-    <th>Event title</th>
+  <tr>
+      <th>Start Time</th>
+      <td><input type="text" name="time_start" value={{record.time_start}}></td>
+  </tr>
+  <tr>
+      <th>End Time</th>
+      <td><input type="text" name="time_end" value={{record.time_end}}></td>
+  </tr>
+  <tr>
+    <th>Event Title</th>
     <td><input type="text" name="title" value={{record.title}}></td>
   </tr>
    <tr>

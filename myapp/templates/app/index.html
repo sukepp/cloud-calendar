@@ -41,7 +41,9 @@
           <thead>
              <tr>
               <th>Event date</th>
-              <th>Event title</th>
+              <th>Start Time</th>
+              <th>End Time</th>
+              <th>Title</th>
               <th>Description</th>
             </tr>
           </thead>
@@ -69,7 +71,7 @@
         <col style="width:65%">
         <col style="width:7%">
           <tr>
-            <th>Event title</th>
+            <th>Title</th>
               <td><input type="text" name="title"></td>
               <td><input type="submit" class="btn show-new-item" value="Search"/></td>
           </tr>
@@ -89,7 +91,9 @@
         <thead>
           <tr>
             <th>Event date</th>
-            <th>Event title</th>
+            <th>Start Time</th>
+            <th>End Time</th>
+            <th>Title</th>
             <th>Description</th>
             <th></th>
           </tr>
@@ -98,6 +102,8 @@
           {% for record in records %}
           <tr>
             <td>{{ record.date | date:"Y-m-d" }}</td>
+            <td>{{ record.time_start}}</td>
+            <td>{{ record.time_end}}</td>
             <td>{{ record.title }}</td>
             <td>{{ record.description }}</td>
             <td>

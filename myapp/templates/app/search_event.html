@@ -37,8 +37,10 @@
         <col style="width:7%">
         <thead>
           <tr>
-            <th>Event date</th>
-            <th>Event title</th>
+            <th>Event Date</th>
+            <th>Start Time</th>
+            <th>End Time</th>
+            <th>Title</th>
             <th>Description</th>
             <th></th>
           </tr>
@@ -47,6 +49,8 @@
           {% for record in records %}
           <tr>
             <td>{{ record.date | date:"Y-m-d" }}</td>
+            <td>{{ record.time_start}}</td>
+            <td>{{ record.time_end}}</td>
             <td>{{ record.title }}</td>
             <td>{{ record.description }}</td>
             <td>
