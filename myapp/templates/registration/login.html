@@ -7,25 +7,25 @@
 <body>
 	<table align="center" style="margin-top:100px">
 	<form method="post" action="/accounts/login/">
-	{% csrf_token %}
-	<tr>
-	    <td>{{ form.username.label_tag }}</td>
-	    <td>{{ form.username }}</td>
-	</tr>
-	<tr>
-	    <td>{{ form.password.label_tag }}</td>
-	    <td>{{ form.password }}</td>
-	</tr>
-	<tr>
-	</tr>
-	<tr>
-	    <td></td>
-	    <td>
-	        <input type="submit" value="Login" class="btn small-buttoan" />
-	    </td>
-		</form>
+		{% csrf_token %}
+		<tr>
+		    <td>{{ form.username.label_tag }}</td>
+		    <td>{{ form.username }}</td>
+		</tr>
+		<tr>
+		    <td>{{ form.password.label_tag }}</td>
+		    <td>{{ form.password }}</td>
+		</tr>
+		<tr>
+		</tr>
+		<tr>
+		    <td></td>
+		    <td>
+		        <input type="submit" value="Login" class="btn small-buttoan" />
+		    </td>
+		</tr>
+	</form>
 
-	</tr>
     <tr>
     	<td></td>
 	    <td>
