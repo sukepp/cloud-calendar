@@ -7,8 +7,6 @@ class RecordForm(ModelForm):
 
     def __init__(self, user, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        # by_user = Category.objects.filter(user=user) | Category.objects.filter(pk=39)
-        # self.fields['category'].queryset = by_user
 
     class Meta:
         model = Record
